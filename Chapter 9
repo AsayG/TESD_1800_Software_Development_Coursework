@@ -1,0 +1,111 @@
+package account;
+
+import java.util.Date;
+
+public class Account {
+		
+		private int id;
+		
+		private double balance;
+		
+		private double annulInterestRate;
+		
+		private Date dateCreated;
+		
+		public Account (int id, double balance) {
+	        this.id = id;
+	        this.balance = balance;
+	    }
+		
+		public int id() {
+	        return id;
+	    }
+		public void Id1(int newid) {
+			id = (newid >= 0) ? newid : 0;
+		}
+		public double balance() {
+	        return balance;
+	    }
+		public void Balance(int newbalance) {
+			balance = (newbalance >= 0) ? newbalance : 0;
+		}
+		
+		public double annulInterestRate() {
+	        return annulInterestRate;
+	    }
+		public void annulInterestRate(double newannulInterestRate) {
+			this.annulInterestRate = newannulInterestRate;
+		}
+		public Date dateCreated() {
+			return this.dateCreated = new Date();
+		}
+		public double getMonthlyInterestRate() {
+			return (annulInterestRate / 100.0) / 12.0;
+		}
+		public double getMonthlyInterest() {
+			return balance * getMonthlyInterestRate();
+		}
+		public void withdraw(double amount) {
+		    balance -= amount;
+		}
+		public void deposit(double amount) {
+			balance += amount;
+		}
+			
+		public static void main(String[] args) {
+		
+		        Account myAccount = new Account(1122, 20000);
+		        myAccount.annulInterestRate(4.5);
+
+		        myAccount.withdraw(2500);
+		        myAccount.deposit(3000);
+
+		        System.out.println("Balance: $" + myAccount.balance());
+		        System.out.println("Monthly Interest: $" + myAccount.getMonthlyInterest());
+		        System.out.println("Date Created: " + myAccount.dateCreated());
+		    }
+	}
+
+package rectangleQuiz;
+
+public class RectangleQuiz {
+		
+		double width;
+	    double height;
+
+	    public RectangleQuiz(double width, double height) {
+	        this.width = width;
+	        this.height = height;
+	    }
+
+	    public double getArea() {
+	        return width * height;
+	    }
+
+	     double getPerimeter() {
+	        return 2 * (width + height);
+	    }
+	     
+	    public static void main(String[] args) {
+	        RectangleQuiz rectangle1 = new RectangleQuiz(4, 40);
+	        RectangleQuiz rectangle2 = new RectangleQuiz(3.5, 35.9);
+
+	        System.out.println("Rectangle 1:");
+	        System.out.println("Width:     " + rectangle1.width);
+	        System.out.println("Height:    " + rectangle1.height);
+	        System.out.println("Area:      " + rectangle1.getArea());
+	        System.out.println("Perimeter: " + rectangle1.getPerimeter());
+
+	        System.out.println("\nRectangle 2:");
+	        System.out.println("Width:     " + rectangle2.width);
+	        System.out.println("Height:    " + rectangle2.height);
+	        System.out.println("Area:      " + rectangle2.getArea());
+	        System.out.println("Perimeter: " + rectangle2.getPerimeter());
+		
+		
+		
+		
+	}
+
+}
+
