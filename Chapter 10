@@ -1,0 +1,410 @@
+package account;
+
+import java.util.Date;
+import java.util.Scanner;
+
+public class Account {
+		
+		private int id;
+		
+		private double balance;
+		
+		private double annulInterestRate;
+		
+		private Date dateCreated;
+	
+		
+		
+		public Account (int id, double balance) {
+	        this.id = id;
+	        this.balance = balance;
+	    }
+		
+		public int id() {
+	        return id;
+	    }
+		public void Id1(int newid) {
+			id = (newid >= 0) ? newid : 0;
+		}
+		public double balance() {
+	        return balance;
+	    }
+		public void Balance(int newbalance) {
+			balance = (newbalance >= 0) ? newbalance : 0;
+		}
+		
+		public double annulInterestRate() {
+	        return annulInterestRate;
+	    }
+		public void annulInterestRate(double newannulInterestRate) {
+			this.annulInterestRate = newannulInterestRate;
+		}
+		public Date dateCreated() {
+			return this.dateCreated = new Date();
+		}
+		public double getMonthlyInterestRate() {
+			return (annulInterestRate / 100.0) / 12.0;
+		}
+		public double getMonthlyInterest() {
+			return balance * getMonthlyInterestRate();
+		}
+		public void withdraw(double amount) {
+		    balance -= amount;
+		}
+		public void deposit(double amount) {
+			balance += amount;
+		}
+		
+		public static void main(String[] args) {
+			
+			Account[] idArray = {new Account(0,100), new Account(1,100), new Account(2,100), new Account(3,100), new Account(4,100), new Account(5,100),
+					new Account(6,100), new Account(7,100), new Account(8,100), new Account(9,100)};
+			
+			Scanner input = new Scanner(System.in);
+			System.out.print("Enter an Id:");
+			int n = input.nextInt();
+			int i = 0;
+			while(i !=4 ) {
+		if (n == 0) {
+			
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[0].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[0].withdraw(j);
+				System.out.println("Your Balance:" + idArray[0].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[0].deposit(j);
+				System.out.println("Your Balance:" + idArray[0].balance);
+			}
+		} 
+		else if (n == 1) {
+				System.out.println("Main Menu");
+				System.out.println("1: Check Balance");
+				System.out.println("2: Withdraw");
+				System.out.println("3: Deposit");
+				System.out.println("4: Exit");
+				i = input.nextInt();
+				if (i == 1) {
+					System.out.println("Your Balance:" + idArray[1].balance);
+				}
+				else if (i == 2){
+					System.out.println("Withdrawl Amount:" );
+					int j = input.nextInt();
+					idArray[1].withdraw(j);
+					System.out.println("Your Balance:" + idArray[1].balance);
+				}
+				else if (i == 3){
+					System.out.println("Deposit Amount:" );
+					int j = input.nextInt();
+					idArray[1].deposit(j);
+					System.out.println("Your Balance:" + idArray[1].balance);
+				}
+			}
+		else if (n == 2) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[2].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[2].withdraw(j);
+				System.out.println("Your Balance:" + idArray[2].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[2].deposit(j);
+				System.out.println("Your Balance:" + idArray[2].balance);
+			}
+		}
+		else if (n == 3) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[3].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[3].withdraw(j);
+				System.out.println("Your Balance:" + idArray[3].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[3].deposit(j);
+				System.out.println("Your Balance:" + idArray[3].balance);
+			}
+		}
+		else if (n == 4) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[4].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[4].withdraw(j);
+				System.out.println("Your Balance:" + idArray[4].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[4].deposit(j);
+				System.out.println("Your Balance:" + idArray[4].balance);
+			}
+		}
+		else if (n == 5) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[5].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[5].withdraw(j);
+				System.out.println("Your Balance:" + idArray[5].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[5].deposit(j);
+				System.out.println("Your Balance:" + idArray[5].balance);
+			}
+		}
+		else if (n == 6) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[6].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[6].withdraw(j);
+				System.out.println("Your Balance:" + idArray[6].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[6].deposit(j);
+				System.out.println("Your Balance:" + idArray[6].balance);
+			}
+		}
+		else if (n == 7) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[7].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[7].withdraw(j);
+				System.out.println("Your Balance:" + idArray[7].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[7].deposit(j);
+				System.out.println("Your Balance:" + idArray[7].balance);
+			}
+		}
+		else if (n == 8) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[8].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[8].withdraw(j);
+				System.out.println("Your Balance:" + idArray[8].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[8].deposit(j);
+				System.out.println("Your Balance:" + idArray[8].balance);
+			}
+		}
+		else if (n == 9) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[9].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[9].withdraw(j);
+				System.out.println("Your Balance:" + idArray[9].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[9].deposit(j);
+				System.out.println("Your Balance:" + idArray[9].balance);
+			}
+		}
+	}
+}
+		
+		   /*   Account myAccount = new Account(1122, 20000);
+		        //idArray[0];  idArray[0].withdraw(50);
+		        myAccount.annulInterestRate(4.5);
+
+		        myAccount.withdraw(n);
+		        myAccount.deposit(3000);
+
+		        System.out.println("Balance: $" + myAccount.balance());
+		        System.out.println("Monthly Interest: $" + myAccount.getMonthlyInterest());
+		        System.out.println("Date Created: " + myAccount.dateCreated()); */
+		    }
+	
+
+package myInteger;
+
+public class MyInteger {
+
+	//public static void main(String[] args) {
+		
+		int value;
+		
+		public MyInteger(int value) {
+		        this.value = value;
+		}
+		
+		public int getValue() {
+		        return value;
+		}
+		public boolean isEven() {
+		        return isEven(this.value);
+		}
+		public boolean isOdd() {
+			 return isOdd(this.value);
+		}
+		public boolean isPrime() {
+			 return isPrime(this.value);
+		}
+		
+		public static boolean isEven(int n) {
+		        return n % 2 == 0;
+		    }
+
+		    public static boolean isOdd(int n) {
+		        return n % 2 != 0;
+		    }
+
+		    public static boolean isPrime(int n) {
+		        if (n <= 1) {
+		            return false;
+		        }
+		        for (int i = 2; i <= Math.sqrt(n); i++) {
+		            if (n % i == 0) {
+		                return false;
+		            }
+		        }
+		        return true;
+		    }
+
+		    public static boolean isEven(MyInteger myInt) {
+		    	return isEven(myInt.getValue());
+		    }
+
+		    public static boolean isOdd(MyInteger myInt) {
+		    	return isOdd(myInt.getValue());
+		    }
+
+		    public static boolean isPrime(MyInteger myInt) {
+		    	return isPrime(myInt.getValue());
+		    }
+
+		    public boolean equals(int n) {
+		    	return this.value == n;
+		    }
+
+		    public boolean equals(MyInteger myInt) {
+		    	return equals(myInt.getValue());
+		    }
+
+		    public static int parseInt(char[] charArray) {
+		    	int result = 0;
+		        for (int i = 0; i < charArray.length; i++) {
+		        	result = result * 10 + (charArray[i] - '0');
+		        }
+		        return result;
+		    }
+
+		    public static int parseInt(String s) {
+		    	return Integer.parseInt(s);
+		
+	}
+		    
+		    public static void main(String[] args) {
+		    	MyInteger n1 = new MyInteger(20);
+		    	MyInteger n2 = new MyInteger(10);
+    
+		    	System.out.println("n1 (" + n1.getValue() + ") isEven? " + n1.isEven());
+		    	System.out.println("n1 (" + n1.getValue() + ") isPrime? " + n1.isPrime());
+		    	System.out.println("n2 (" + n2.getValue() + ") isEven? " + n2.isEven());
+    
+		    	System.out.println("Is 9 prime? " + MyInteger.isPrime(9));
+		    	System.out.println("n1 equals 7? " + n1.equals(7));
+		    	System.out.println("n1 equals n2? " + n1.equals(n2));
+		
+		    	System.out.println("Parse \"123\": " + MyInteger.parseInt("123"));
+		    	System.out.println("Parse {'4','5','6'}: " + MyInteger.parseInt(new char[]{'4', '5', '6'}));
+	}
+}
+
+
