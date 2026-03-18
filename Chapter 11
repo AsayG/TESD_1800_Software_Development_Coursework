@@ -1,0 +1,483 @@
+package triangle;
+
+public class GeometricObject {
+
+		     public boolean filled;
+		     private java.util.Date dateCreated;
+			 public String color;		 
+		     /** Construct a default geometric object */
+		     public GeometricObject() {
+		       dateCreated = new java.util.Date();
+		     }
+		
+		    /** Construct a geometric object with the specified color
+		      *  and filled value */
+		    public GeometricObject(String color, boolean filled) {
+		      dateCreated = new java.util.Date();
+		      this.color = color;
+		      this.filled = filled;
+		    }
+		
+		    /** Return color */
+		    public String getColor() {
+		      return color;
+		    }
+		
+		    /** Set a new color */
+		   public void setColor(String color) {
+		      this.color = color;
+		    }
+		
+		    /** Return filled. Since filled is boolean,
+		      its getter method is named isFilled */
+		   public boolean isFilled() {
+		      return filled;
+		    }
+		
+		    /** Set a new filled */
+		    public void setFilled(boolean filled) {
+		      this.filled = filled;
+		    }
+		
+		   /** Get dateCreated */
+		    public java.util.Date getDateCreated() {
+		     return dateCreated;
+		   }
+		
+		    /** Return a string representation of this object */
+		   public String toString() {
+		     return "created on " + dateCreated + "color: " + color +
+		        " and filled: " + filled;
+		    }
+	}
+package triangle;
+
+import java.util.Scanner;
+
+public class testTriangle {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		Triangle triangle1 = new Triangle();
+		GeometricObject geometricObject = new GeometricObject();
+		
+		System.out.print("Enter side 1 of the Triangle:");
+		triangle1.side1 = scan.nextDouble();
+		System.out.print("Enter side 2 of the Triangle:");
+
+		triangle1.side2 = scan.nextDouble();
+		System.out.print("Enter side 3 of the Triangle:");
+
+		triangle1.side3 = scan.nextDouble();
+
+		System.out.print("Enter color:");
+		geometricObject.color = scan.next();
+	
+		System.out.print("Enter boolean:");
+		
+		geometricObject.setFilled(scan.nextBoolean());
+		
+		System.out.println();
+		System.out.println("The Triangle");
+
+		System.out.println("Area is:" + triangle1.getArea());
+		System.out.println("Perimeter is:" + triangle1.getPerimeter());
+		System.out.println("Color is " + geometricObject.getColor());
+		System.out.println("Is filled? " + geometricObject.isFilled());
+
+		System.out.print("Triangle was created: " + geometricObject.getDateCreated());
+	}
+}
+package triangle;
+
+public class Triangle {
+		double side1;
+		double side2;
+		double side3;
+		
+		
+		// Default constructor
+		public Triangle() {
+			
+		}
+		
+		public Triangle(double side1, double side2, double side3) {
+			this.side1 = side1;
+			this.side2 = side2;
+			this.side3 = side3;
+		}
+		
+		public double getside1() {
+			return side1;
+		}
+		public double getside2() {
+			return side2;
+		}
+		public double getside3() {
+			return side3;
+		}
+		
+		public double getArea() {
+			double s = (side1 + side2 + side3) /2;
+			 return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+		}
+		
+		public double getPerimeter() {
+			double perimeter = side1 + side2 + side3;
+			return perimeter;
+		}
+		
+		public String toString() {
+			return "Triangle: side1 = " + side1 + " side2 = " + side2 + " side3 = " + side3;
+		}
+	}
+	
+package account;
+
+import java.util.Date;
+import java.util.Scanner;
+
+public class Account {
+		
+		private int id;
+		
+		 double balance;
+		
+		private double annulInterestRate;
+		
+		private Date dateCreated;
+	
+		
+		
+		public Account (int id, double balance) {
+	        this.id = id;
+	        this.balance = balance;
+	    }
+		
+		public int id() {
+	        return id;
+	    }
+		public void Id1(int newid) {
+			id = (newid >= 0) ? newid : 0;
+		}
+		public double balance() {
+	        return balance;
+	    }
+		public void Balance(int newbalance) {
+			balance = (newbalance >= 0) ? newbalance : 0;
+		}
+		
+		public double annulInterestRate() {
+	        return annulInterestRate;
+	    }
+		public void annulInterestRate(double newannulInterestRate) {
+			this.annulInterestRate = newannulInterestRate;
+		}
+		public Date dateCreated() {
+			return this.dateCreated = new Date();
+		}
+		public double getMonthlyInterestRate() {
+			return (annulInterestRate / 100.0) / 12.0;
+		}
+		public double getMonthlyInterest() {
+			return balance * getMonthlyInterestRate();
+		}
+		public void withdraw(double amount) {
+		    balance -= amount;
+		}
+		public void deposit(double amount) {
+			balance += amount;
+		}
+		
+		public String toString() {
+	        return "Account Details:\n" +
+	               "ID: " + id + "\n" +
+	               "Balance: $" + String.format("%.2f", balance) + "\n";
+	               
+	    }
+		
+		
+		public static void main(String[] args) {
+			
+			Account[] idArray = {new checkingAccounts(0,100, 100), new savingAccount(1,100), new Account(2,100), new Account(3,100), new checkingAccounts(4,100, 150), 
+					new Account(5,100), new Account(6,100), new Account(7,100), new savingAccount(8,100), new Account(9,100)};
+			 
+			Scanner input = new Scanner(System.in);
+			System.out.print("Enter an Id:");
+			int n = input.nextInt();
+			int i = 0;
+			while(i !=4 ) {
+		if (n == 0) {
+			
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				//System.out.println("Your Balance:" + idArray[0].balance);
+				System.out.println( idArray[0].toString());
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[0].withdraw(j);
+				System.out.println("Your Balance:" + idArray[0].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[0].deposit(j);
+				System.out.println("Your Balance:" + idArray[0].balance);
+				
+			}
+		} 
+		else if (n == 1) {
+				System.out.println("Main Menu");
+				System.out.println("1: Check Balance");
+				System.out.println("2: Withdraw");
+				System.out.println("3: Deposit");
+				System.out.println("4: Exit");
+				i = input.nextInt();
+				if (i == 1) {
+					//System.out.println("Your Balance:" + idArray[1].balance);
+					System.out.println( idArray[1].toString());
+				}
+				else if (i == 2){
+					System.out.println("Withdrawl Amount:" );
+					int j = input.nextInt();
+					idArray[1].withdraw(j);
+					System.out.println("Your Balance:" + idArray[1].balance);
+				}
+				else if (i == 3){
+					System.out.println("Deposit Amount:" );
+					int j = input.nextInt();
+					idArray[1].deposit(j);
+					System.out.println("Your Balance:" + idArray[1].balance);
+				}
+			}
+		else if (n == 2) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[2].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[2].withdraw(j);
+				System.out.println("Your Balance:" + idArray[2].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[2].deposit(j);
+				System.out.println("Your Balance:" + idArray[2].balance);
+			}
+		}
+		else if (n == 3) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[3].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[3].withdraw(j);
+				System.out.println("Your Balance:" + idArray[3].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[3].deposit(j);
+				System.out.println("Your Balance:" + idArray[3].balance);
+			}
+		}
+		else if (n == 4) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println( idArray[4].toString());
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[4].withdraw(j);
+				System.out.println("Your Balance:" + idArray[4].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[4].deposit(j);
+				System.out.println("Your Balance:" + idArray[4].balance);
+			}
+		}
+		else if (n == 5) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[5].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[5].withdraw(j);
+				System.out.println("Your Balance:" + idArray[5].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[5].deposit(j);
+				System.out.println("Your Balance:" + idArray[5].balance);
+			}
+		}
+		else if (n == 6) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[6].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[6].withdraw(j);
+				System.out.println("Your Balance:" + idArray[6].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[6].deposit(j);
+				System.out.println("Your Balance:" + idArray[6].balance);
+			}
+		}
+		else if (n == 7) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[7].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[7].withdraw(j);
+				System.out.println("Your Balance:" + idArray[7].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[7].deposit(j);
+				System.out.println("Your Balance:" + idArray[7].balance);
+			}
+		}
+		else if (n == 8) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println(idArray[8].toString());
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[8].withdraw(j);
+				System.out.println("Your Balance:" + idArray[8].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[8].deposit(j);
+				System.out.println("Your Balance:" + idArray[8].balance);
+			}
+		}
+		else if (n == 9) {
+			System.out.println("Main Menu");
+			System.out.println("1: Check Balance");
+			System.out.println("2: Withdraw");
+			System.out.println("3: Deposit");
+			System.out.println("4: Exit");
+			i = input.nextInt();
+			if (i == 1) {
+				System.out.println("Your Balance:" + idArray[9].balance);
+			}
+			else if (i == 2){
+				System.out.println("Withdrawl Amount:" );
+				int j = input.nextInt();
+				idArray[9].withdraw(j);
+				System.out.println("Your Balance:" + idArray[9].balance);
+			}
+			else if (i == 3){
+				System.out.println("Deposit Amount:" );
+				int j = input.nextInt();
+				idArray[9].deposit(j);
+				System.out.println("Your Balance:" + idArray[9].balance);
+			}
+		
+			
+		}
+			}
+		}
+}
+		
+		class checkingAccounts extends Account {
+			private double limit;
+		 public checkingAccounts(int id, double balance, double limit) {
+				super(id, balance);
+				
+				this.limit = limit;
+			}
+		 
+		 public void withdraw(double amount) {
+			 if (amount > 0 && (balance + limit) >= amount) {
+				 balance -= amount;
+			 }
+			 
+		 }
+		public String toString() {
+				 return "Checking " + super.toString() + "Withdrawl Limit: $" + limit + "";
+			 }
+		 
+		}
+	
+	
+		
+		class savingAccount extends Account {
+
+			 public savingAccount(int id, double balance) {
+				super(id, balance);
+				
+			}
+			 public String toString() {
+				 return "Savings " + super.toString(); }
+				
+						
+					
+				}
