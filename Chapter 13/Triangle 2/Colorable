@@ -1,0 +1,7 @@
+package triangle;
+
+public interface Colorable {
+
+	String howToColor();
+
+}
