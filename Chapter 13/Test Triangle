@@ -1,0 +1,38 @@
+package triangle;
+
+import java.util.Scanner;
+
+public class testTriangle {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		Triangle triangle1 = new Triangle();
+		GeometricObject geometricObject = new GeometricObject();
+		
+		System.out.print("Enter side 1 of the Triangle:");
+		triangle1.side1 = scan.nextDouble();
+		System.out.print("Enter side 2 of the Triangle:");
+
+		triangle1.side2 = scan.nextDouble();
+		System.out.print("Enter side 3 of the Triangle:");
+
+		triangle1.side3 = scan.nextDouble();
+
+		System.out.print("Enter color:");
+		geometricObject.color = scan.next();
+	
+		System.out.print("Enter boolean:");
+		
+		geometricObject.setFilled(scan.nextBoolean());
+		
+		System.out.println();
+		System.out.println("The Triangle");
+
+		System.out.println("Area is:" + triangle1.getArea());
+		System.out.println("Perimeter is:" + triangle1.getPerimeter());
+		System.out.println("Color is " + geometricObject.getColor());
+		System.out.println("Is filled? " + geometricObject.isFilled());
+
+		System.out.print("Triangle was created: " + geometricObject.getDateCreated());
+	}
+}
