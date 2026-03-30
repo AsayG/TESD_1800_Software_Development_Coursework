@@ -1,0 +1,63 @@
+package triangle;
+import java.lang.Cloneable;
+public class Triangle extends GeometricObject implements Cloneable, Comparable<Triangle> {
+		double side1;
+		
+		
+		// Default constructor
+		public Triangle() {
+			
+		}
+		
+		public Triangle(double side) {
+			this.side1 = side;
+			
+		}
+		
+		public double getside1() {
+			return side1;
+		}
+		
+		
+		public double getArea() {
+			 double s = ((2+ 4/Math.sqrt(2))* side1* side1);
+			return s;
+		}
+		
+		public double getPerimeter() {
+			double perimeter = side1;
+			return perimeter;
+		}
+		
+		public String toString() {
+			return "Octagon: side1 = " + side1;
+		}
+
+		@Override
+			
+			public int compareTo(Triangle o) {
+				if (getArea() > o.getArea())
+					return 1;
+				else if (getArea() < o.getArea())
+					return -1;
+				else
+					return 0;
+			}
+				
+				
+				public Object clone() {
+					try {
+					return super.clone();
+					}
+					catch (CloneNotSupportedException ex) {
+						return null;
+					}
+					
+						
+			}
+		}
+		
+	
+	
+	
+
