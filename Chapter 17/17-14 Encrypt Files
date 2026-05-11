@@ -1,0 +1,56 @@
+package encryptFiles;
+import java.io.*;
+import java.util.Scanner;
+public class EncryptFiles {
+
+	public static void main(String[] args) throws IOException {
+		
+		Scanner input = new Scanner(System.in);
+		
+		
+		File outfile = new File("outFile");
+		if (outfile.createNewFile()) {
+			System.out.println("File \"" + outfile + "\" Created");
+		}else {
+			System.out.println("File \"" + outfile + "\" exists");
+		}
+		
+			File file = new File("NewFile");
+			if (file.createNewFile()) {
+				System.out.println("File \"" + file + "\" Created");
+			}else {
+				System.out.println("File \"" + file + "\" exists");
+			}
+		
+		
+		System.out.print("Enter input file name: ");
+		String InputFile = input.nextLine();
+		System.out.print("Enter output file name: ");
+		String OutputFile = input.nextLine();
+		
+		FileInputStream is = new FileInputStream(InputFile);
+		FileOutputStream os = new FileOutputStream(OutputFile);
+		
+		int addBytes;
+			
+			try {
+				while ((addBytes = is.read()) != -1) {
+					try {
+						os.write(addBytes + 5);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Encryption complete! Saved to " + OutputFile);
+	
+		
+		
+		
+	}
+
+}
