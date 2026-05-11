@@ -1,0 +1,55 @@
+package decryptFiles;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class decryptFiles {
+
+	public static void main(String[] args) throws IOException{
+		
+		Scanner input = new Scanner(System.in);
+		
+		File outfile = new File("Decryted");
+			if (outfile.createNewFile()) {
+				System.out.println("File \"" + outfile + "\" Created");
+			}else {
+				System.out.println("File \"" + outfile + "\" exists");
+			}
+
+			File file = new File("outFile");
+				if (file.createNewFile()) {
+					System.out.println("File \"" + file + "\" Created");
+				}else {
+					System.out.println("File \"" + file + "\" exists");
+				}	
+		
+		System.out.print("Enter Encrypted input file name: ");
+		String InputFile = input.nextLine();
+		System.out.print("Enter output file name: ");
+		String OutputFile = input.nextLine();
+		
+		FileInputStream is = new FileInputStream(InputFile);
+		FileOutputStream os = new FileOutputStream(OutputFile);
+		
+		int addBytes;
+			
+			try {
+				while ((addBytes = is.read()) != -1) {
+					try {
+						os.write(addBytes - 5);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Decryption complete! Saved to " + OutputFile);
+
+	}
+
+}
